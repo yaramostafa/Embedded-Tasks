@@ -1,0 +1,227 @@
+###############################################################################
+#
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  13/Nov/2022  09:42:29
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Exe\lab3b.out
+#    Map file     =
+#        D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\List\lab3b.map
+#    Command line =
+#        -f "D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Exe\lab3b.out.rsp"
+#        ("D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Obj\DIO.o"
+#        "D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Obj\Keypad.o"
+#        "D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Obj\main.o"
+#        "D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Obj\tasks.o"
+#        --no_out_extension -o
+#        "D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\Exe\lab3b.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        "D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211
+#        Introduction to Embedded Systems\Lab3B\Debug\List\lab3b.map" --config
+#        "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\arm/config/linker/TexasInstruments/TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=VFPv4_sp)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            ro code          0x0    0x40  vector_table_M.o [4]
+                                   - 0x40    0x40
+
+"P1":                                       0x14c
+  .text              ro code         0x40    0x2c  iarttio.o [5]
+  .text              ro code         0x6c     0x8  XShttio.o [2]
+  .text              ro code         0x74    0x2a  copy_init3.o [4]
+  .text              ro code         0x9e     0x2  vectortrap_M.o [4]
+  .text              ro code         0xa0    0x28  data_init.o [4]
+  .text              ro code         0xc8    0x22  fpinit_M.o [3]
+  .iar.init_table    const           0xec    0x14  - Linker created -
+  .text              ro code        0x100    0x1e  cmain.o [4]
+  .text              ro code        0x11e     0x4  low_level_init.o [2]
+  .text              ro code        0x124    0x1c  main.o [1]
+  .text              ro code        0x140     0x4  exit.o [2]
+  .text              ro code        0x144     0xa  cexit.o [4]
+  .text              ro code        0x150    0x14  exit.o [5]
+  .text              ro code        0x164    0x1c  cstartup_M.o [4]
+  Initializer bytes  const          0x180     0xc  <for P2-1>
+  .rodata            const          0x18c     0x0  copy_init3.o [4]
+                                  - 0x18c   0x14c
+
+"P2", part 1 of 2:                            0xc
+  P2-1                        0x2000'0000     0xc  <Init block>
+    .data            inited   0x2000'0000     0x8  XShttio.o [2]
+    .bss             inited   0x2000'0008     0x4  main.o [1]
+                            - 0x2000'000c     0xc
+
+"P2", part 2 of 2:                         0x1000
+  CSTACK                      0x2000'0010  0x1000  <Block>
+    CSTACK           uninit   0x2000'0010  0x1000  <Block tail>
+                            - 0x2000'1010  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x18c     0x3'ffff  0x3'fe74
+  0x2000'000c  0x2000'000f       0x4
+  0x2000'1010  0x2000'7fff    0x6ff0
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0xc:
+                0x180   0xc
+    1 destination range, total size 0xc:
+          0x2000'0000   0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211 Introduction to Embedded Systems\Lab3B\Debug\Obj: [1]
+    main.o                 28        4        4
+    -------------------------------------------
+    Total:                 28        4        4
+
+dl7M_tln.a: [2]
+    XShttio.o               8        8        8
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                 16        8        8
+
+m7M_tls.a: [3]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [4]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           42
+    cstartup_M.o           28
+    data_init.o            40
+    vector_table_M.o       64
+    vectortrap_M.o          2
+    -------------------------------------------
+    Total:                216
+
+shb_l.a: [5]
+    exit.o                 20
+    iarttio.o              44
+    -------------------------------------------
+    Total:                 64
+
+    Gaps                    4        2
+    Linker created                  20    4'096
+-----------------------------------------------
+    Grand Total:          362       34    4'108
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address  Size  Type      Object
+-----                       -------  ----  ----      ------
+.iar.init_table$$Base          0xec         --   Gb  - Linker created -
+.iar.init_table$$Limit        0x100         --   Gb  - Linker created -
+?main                         0x101        Code  Gb  cmain.o [4]
+BusFault_Handler               0x9f        Code  Wk  vectortrap_M.o [4]
+CSTACK$$Base            0x2000'0010         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1010         --   Gb  - Linker created -
+DebugMon_Handler               0x9f        Code  Wk  vectortrap_M.o [4]
+HardFault_Handler              0x9f        Code  Wk  vectortrap_M.o [4]
+MemManage_Handler              0x9f        Code  Wk  vectortrap_M.o [4]
+NMI_Handler                    0x9f        Code  Wk  vectortrap_M.o [4]
+PendSV_Handler                 0x9f        Code  Wk  vectortrap_M.o [4]
+Region$$Table$$Base            0xec         --   Gb  - Linker created -
+Region$$Table$$Limit          0x100         --   Gb  - Linker created -
+SVC_Handler                    0x9f        Code  Wk  vectortrap_M.o [4]
+SysTick_Handler                0x9f        Code  Wk  vectortrap_M.o [4]
+UsageFault_Handler             0x9f        Code  Wk  vectortrap_M.o [4]
+__cmain                       0x101        Code  Gb  cmain.o [4]
+__exit                        0x151  0x14  Code  Gb  exit.o [5]
+__iar_close_ttio               0x41  0x2c  Code  Gb  iarttio.o [5]
+__iar_copy_init3               0x75  0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3               0xa1  0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                 0xc9        Code  Gb  fpinit_M.o [3]
+__iar_lookup_ttioh             0x6d   0x8  Code  Gb  XShttio.o [2]
+__iar_program_start           0x165        Code  Gb  cstartup_M.o [4]
+__iar_ttio_handles      0x2000'0000   0x8  Data  Lc  XShttio.o [2]
+__low_level_init              0x11f   0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0        Data  Gb  vector_table_M.o [4]
+_call_main                    0x10d        Code  Gb  cmain.o [4]
+_exit                         0x145        Code  Gb  cexit.o [4]
+counter                 0x2000'0008   0x4  Data  Gb  main.o [1]
+exit                          0x141   0x4  Code  Gb  exit.o [2]
+main                          0x125  0x1c  Code  Gb  main.o [1]
+
+
+[1] = D:\Users\Seif_Eldin_Sameh\Desktop\University\Senior 1\CSE211 Introduction to Embedded Systems\Lab3B\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+    362 bytes of readonly  code memory
+     34 bytes of readonly  data memory
+  4'108 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
